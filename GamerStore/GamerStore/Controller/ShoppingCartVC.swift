@@ -114,7 +114,7 @@ extension ShoppingCartVC: CartTableViewCellDelegate {
     func addGameToCart(addedGame: GameBase) {
     }
     
-    func reloadData() {
+    func reloadCellsWithDeletingCurrent() {
         shoppingCartTableView.reloadData()
         calcTotalCost()
     }

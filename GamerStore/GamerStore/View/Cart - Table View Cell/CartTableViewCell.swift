@@ -9,7 +9,7 @@ import UIKit
 
 protocol CartTableViewCellDelegate: class {
     func addGameToCart(addedGame: GameBase)
-    func reloadData()
+    func reloadCellsWithDeletingCurrent()
 }
 
 
@@ -30,7 +30,6 @@ class CartTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
     }
     
@@ -45,7 +44,7 @@ class CartTableViewCell: UITableViewCell {
         Singleton.shared.printedGame = Singleton.shared.printedGame.filter({
             $0.gameName != self.selectedItem?.gameName
         })
-        delegate?.reloadData()
+        delegate?.reloadCellsWithDeletingCurrent()
     }
     
 }
